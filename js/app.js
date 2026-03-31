@@ -65,6 +65,17 @@ function adicionar() {
     let nomeProduto = produto.split('-')[0];
     let valorUnitario = produto.split('R$')[1];
     let quantidade = document.getElementById('quantidade').value;
+
+    //verificar se produto selecionado é válido
+if(!produto || produto.trim() === '') {
+    alert('Selecione um produto válido.');
+    return;
+}
+//verificar se quantidade inserida é válida
+if(isNaN(quantidade) || quantidade <= 0) {
+    alert('Insira uma quantidade válida.');
+    return;
+}
     //calcular o preço, o subtotal 
     let preço = quantidade * valorUnitario;
     let carrinho = document.getElementById('lista-produtos');
